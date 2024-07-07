@@ -1,0 +1,38 @@
+package components
+
+type colorType string
+
+const (
+DEFAULT colorType = "default"
+SUCCESS colorType = "success"
+DANGER colorType = "danger"
+)
+
+const btnClasses = "px-2 py-2 flex items-center justify-center"
+const defaultBtnClasses = `bg-blue-700 text-white hover:bg-blue-600 focus:ring-2 focus:ring-offset-2
+focus:ring-blue-700`
+const successBtnClasses = `bg-green-700 text-white hover:bg-green-600 focus:ring-2 focus:ring-offset-2
+focus:ring-green-700`
+const dangerBtnClasses = `bg-red-700 text-white hover:bg-red-600 focus:ring-2 focus:ring-offset-2 focus:ring-red-700`
+
+type ButtonProps struct {
+ButtonType string
+id string
+Color colorType
+Loading bool
+}
+
+func getColorClasses(color colorType) string {
+switch color {
+case SUCCESS:
+return successBtnClasses
+case DANGER:
+return dangerBtnClasses
+default:
+return defaultBtnClasses
+}
+}
+
+templ Button(props ButtonProps) {
+<button type="button"></button>
+}
